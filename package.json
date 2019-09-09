@@ -1,0 +1,29 @@
+{
+  "name": "backend-project-lvl1",
+  "version": "0.0.1",
+  "description": "level 1 project Brain Games",
+  "main": "/src/bin/brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsmirnoff73/backend-project-lvl1.git"
+  },
+  "keywords": [
+    "testproject",
+    "lvl1",
+    "brain",
+    "games"
+  ],
+  "author": "Dmitry OFF",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsmirnoff73/backend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/dsmirnoff73/backend-project-lvl1#readme",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  }
+
+}
