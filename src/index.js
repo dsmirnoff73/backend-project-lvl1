@@ -16,11 +16,11 @@ export const letsPlay = (game, maxNumberOfRounds = 3) => {
     const playersName = introduction(rules);
 
     const playOneTime = (name, _game, numberOfTries) => {
-       if (!numberOfTries) return `\nCongratulations, ${name}!\n`;
-        const { rules, setQuestion, getRightAnswer, normalizeAnswer } = game;
+        if (!numberOfTries) return `\nCongratulations, ${name}!\n`;
+        const { rules, setQuestion, questionToString, getRightAnswer, normalizeAnswer } = game;
         const question = setQuestion();
         const rightAnswer = getRightAnswer(question);
-        const answer = normalizeAnswer(readlineSync.question(`\nQuestion: ${question}\nYour answer?: `));
+        const answer = normalizeAnswer(readlineSync.question(`\nQuestion: ${questionToString(question)}\nYour answer?: `));
         if (rightAnswer !== answer) {
         return `\n'${answer}' is a wrong answer ;(. Correct answer was '${rightAnswer}'.
             Let's try again sometime, ${name}!\n`;
