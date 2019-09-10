@@ -15,4 +15,4 @@ PROGRESSION game: https://asciinema.org/a/JXdukBT3fQc6mT0f5JKayr4F6
 
 PRIME game: https://asciinema.org/a/lswR3D96A28QHRo9MSK8UksT0
 
-MAIN manu: https://asciinema.org/a/LnJlVEco1MLys0DHdx4Ms9N3c
+MAIN menu: https://asciinema.org/a/LnJlVEco1MLys0DHdx4Ms9N3c
