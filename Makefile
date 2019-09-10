@@ -10,10 +10,10 @@ startgcd:
 	npx babel-node src/bin/brain-gcd.js
 startprogress:
 	npx babel-node src/bin/brain-progression.js
+startprime:
+	npx babel-node src/bin/brain-prime.js
 publish:
 	npm publish --dry-run
-build:
-	rm -rf dist
-	npm run build
+
 lint:
 	npx eslint

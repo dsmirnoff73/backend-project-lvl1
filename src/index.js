@@ -22,7 +22,7 @@ export const letsPlay = (game, maxNumberOfRounds = 3) => {
         const answer = normalizeAnswer(readlineSync.question(`\nQuestion: ${questionToString(question)}\nYour answer?: `));
         if (rightAnswer !== answer) {
         return `\n'${answer}' is a wrong answer ;(. Correct answer was '${rightAnswer}'.
-            Let's try again sometime, ${name}!\n`;
+            Let's try again, ${name}!\n`;
         };
         console.log('Correct!');
         return playOneTime(name, _game, numberOfTries - 1);
