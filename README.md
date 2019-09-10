@@ -4,3 +4,4 @@
 [![Build Status](https://travis-ci.org/dsmirnoff73/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/dsmirnoff73/backend-project-lvl1)
 
 https://asciinema.org/a/u9ViFi4GeT0Jvpoujz4gufFVG
+https://asciinema.org/a/LJcdWHp4xnEuu5K2e1Jj8eMoJ
