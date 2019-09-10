@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/dsmirnoff73/backend-project-lvl1#readme",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
