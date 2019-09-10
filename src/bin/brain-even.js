@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import {guessGame} from '..';
+import game from '../games/evenGame';
+import { letsPlay } from '..';
 
-guessGame();
+console.log(letsPlay(game()));

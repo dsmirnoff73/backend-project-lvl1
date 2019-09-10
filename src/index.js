@@ -1,30 +1,32 @@
 import readlineSync from 'readline-sync';
 
 // export const getName = () => readlineSync.question('May I have your name? :');
-const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+export const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export const introduction = (rulesMssg = '') => {
-    console.log('\nWelcome to the Brain Games!\n', rulesMssg);
+    console.log(`\nWelcome to the Brain Games!\n${rulesMssg}`);
     const name = readlineSync.question('\nMay I have your name? : ');
     console.log(`Hello, ${name}!`);
     return name;
 };
 
-const tryGuess = (name, numberOfTries) => {
-    if (!numberOfTries) return `\nCongratulations, ${name}!`;
+export const letsPlay = (game, maxNumberOfRounds = 3) => {
 
-    const randomRange = [0, 100];
-    const guessNumber = getRandom(...randomRange);
-    const isEven = (guessNumber % 2 === 0) ? 'yes' : 'no';
-    const answer = (readlineSync.question(`\nQuestion: ${guessNumber}\nYour answer?: `) === 'yes') ? 'yes' : 'no';
+    const { rules } = game;
+    const playersName = introduction(rules);
 
-    if (isEven !== answer) {
-        return `\n'${answer}' is a wrong answer ;(. Correct answer was '${isEven}'\nLet's try again sometime, ${name}!`;
+    const playOneTime = (name, _game, numberOfTries) => {
+       if (!numberOfTries) return `\nCongratulations, ${name}!\n`;
+        const { rules, setQuestion, getRightAnswer, normalizeAnswer } = game;
+        const question = setQuestion();
+        const rightAnswer = getRightAnswer(question);
+        const answer = normalizeAnswer(readlineSync.question(`\nQuestion: ${question}\nYour answer?: `));
+        if (rightAnswer !== answer) {
+        return `\n'${answer}' is a wrong answer ;(. Correct answer was '${rightAnswer}'.
+            Let's try again sometime, ${name}!\n`;
+        };
+        console.log('Correct!');
+        return playOneTime(name, _game, numberOfTries - 1);
     };
-    console.log('Correct!');
-    return tryGuess(name, numberOfTries - 1);
+    return playOneTime(playersName, game, maxNumberOfRounds);
 };
-
-const guessGameRules = `Answer 'yes' if the number is even, otherwise answer 'no'.`;
-
-export const guessGame = () => { console.log(tryGuess(introduction(guessGameRules), 3)) };
