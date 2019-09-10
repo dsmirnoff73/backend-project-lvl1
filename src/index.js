@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
 
-// export const getName = () => readlineSync.question('May I have your name? :');
 export const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export const introduction = (rulesMssg = '') => {
@@ -17,7 +16,7 @@ export const letsPlay = (game, maxNumberOfRounds = 3) => {
 
     const playOneTime = (name, _game, numberOfTries) => {
         if (!numberOfTries) return `\nCongratulations, ${name}!\n`;
-        const { rules, setQuestion, questionToString, getRightAnswer, normalizeAnswer } = game;
+        const { setQuestion, questionToString, getRightAnswer, normalizeAnswer } = game;
         const question = setQuestion();
         const rightAnswer = getRightAnswer(question);
         const answer = normalizeAnswer(readlineSync.question(`\nQuestion: ${questionToString(question)}\nYour answer?: `));
