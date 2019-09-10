@@ -13,7 +13,7 @@ export default () => ({
             return {
                 frstArg: getRandom(0, 100),
                 scndArg: getRandom(0, 100),
-                operation: operands[getRandom(0,operands.length)],
+                operation: operands[getRandom(0, operands.length)],
             };
         },
         questionToString: ({ frstArg, scndArg, operation }) => `${frstArg} ${operation} ${scndArg}`,
