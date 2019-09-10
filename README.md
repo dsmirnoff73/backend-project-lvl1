@@ -6,3 +6,5 @@
 https://asciinema.org/a/u9ViFi4GeT0Jvpoujz4gufFVG
 
 https://asciinema.org/a/LJcdWHp4xnEuu5K2e1Jj8eMoJ
+
+PROGRESSION game: https://asciinema.org/a/JXdukBT3fQc6mT0f5JKayr4F6
