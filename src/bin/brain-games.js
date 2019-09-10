@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-// import {introduction} from '..';
 import evenGame from '../games/evenGame';
 import calcGame from '../games/calcGame';
 import gcdGame from '../games/gcdGame';
