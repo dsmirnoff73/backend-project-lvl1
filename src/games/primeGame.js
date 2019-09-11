@@ -1,5 +1,7 @@
 import {getRandom} from '..';
 
+const rangeForArgumenGeneration = [0, 100];
+
 const isPrime = (num) => {
     for (let divider = 2, controlValue = Math.sqrt(num); divider <= controlValue; divider += 1)
         if (num % divider === 0) return 'no';
@@ -8,7 +10,7 @@ const isPrime = (num) => {
 
 export default () => ({
     rules: `Answer "yes" if given number is prime. Otherwise answer "no".`,
-    setQuestion: () => getRandom(0, 100),
+    setQuestion: () => getRandom(...rangeForArgumenGeneration),
     questionToString: (question) => String(question),
     getRightAnswer: (num) => isPrime(num),
     normalizeAnswer: (answer) => ((answer === 'yes') ? 'yes' : 'no'),

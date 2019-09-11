@@ -6,13 +6,15 @@ const operations = {
     '*': (x, y) => x * y
 };
 
+const rangeForArgumenGeneration = [0, 100];
+
 export default () => ({
         rules: `What is the result of the expression?`,
         setQuestion: () => {
             const operands = Object.keys(operations);
             return {
-                frstArg: getRandom(0, 100),
-                scndArg: getRandom(0, 100),
+                frstArg: getRandom(...rangeForArgumenGeneration),
+                scndArg: getRandom(...rangeForArgumenGeneration),
                 operation: operands[getRandom(0, operands.length)],
             };
         },
