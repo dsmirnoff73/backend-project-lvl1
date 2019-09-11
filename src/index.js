@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 const introduction = (rulesMssg = '') => {
     console.log(`\nWelcome to the Brain Games!\n${rulesMssg}`);

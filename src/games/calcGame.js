@@ -1,4 +1,4 @@
-import {getRandom} from '..';
+import { getRandom } from '../AllTheMath';
 
 const operations = {
     '+': (x, y) => x + y,
@@ -6,15 +6,15 @@ const operations = {
     '*': (x, y) => x * y
 };
 
-const rangeForArgumenGeneration = [0, 100];
+const rangeForArgumentGeneration = [0, 100];
 
 export default () => ({
         rules: `What is the result of the expression?`,
         setQuestion: () => {
             const operands = Object.keys(operations);
             return {
-                frstArg: getRandom(...rangeForArgumenGeneration),
-                scndArg: getRandom(...rangeForArgumenGeneration),
+                frstArg: getRandom(...rangeForArgumentGeneration),
+                scndArg: getRandom(...rangeForArgumentGeneration),
                 operation: operands[getRandom(0, operands.length)],
             };
         },

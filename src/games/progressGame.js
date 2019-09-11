@@ -1,4 +1,4 @@
-import {getRandom} from '..';
+import {getRandom} from '../AllTheMath';
 
 const rangeForIcrementGeneration = [2, 20];
 const rangeForFirstTerm = [-100, 100];

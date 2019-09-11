@@ -1,8 +1,6 @@
-import {getRandom} from '..';
+import { getRandom, gcd } from '../AllTheMath';
 
-const gcd = (x, y) => ((x === y) ? x : gcd(Math.max(x,y) - Math.min(x,y), Math.min(x,y)));
-
-//  Instead of generating two random numbers, I decided to produce factor of those numbers. 
+//  Instead of generating two random numbers, I decided to produce factors of those numbers. 
 //  By that we get numbers with GCD > 1 with much higher probability.
 const rangeForFactorGeneration = [1, 11];
 
@@ -15,5 +13,4 @@ export default () => ({
     questionToString: ({ frstArg, scndArg }) => `${frstArg} ${scndArg}`,
     getRightAnswer: ({ frstArg, scndArg }) => gcd(frstArg, scndArg),
     normalizeAnswer: (answer) => Number(answer),
-}
-);
+});
