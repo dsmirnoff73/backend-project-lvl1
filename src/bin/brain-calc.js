@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import game from '../games/calcGame';
-import { letsPlay } from '..';
+import letsPlay from '..';
 
 console.log(letsPlay(game()));
