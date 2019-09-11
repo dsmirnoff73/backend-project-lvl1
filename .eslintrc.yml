@@ -13,6 +13,7 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+  - babel
 rules: {
   no-console: 0
 }
