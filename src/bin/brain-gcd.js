@@ -3,4 +3,4 @@
 import game from '../games/gcdGame';
 import letsPlay from '..';
 
-console.log(letsPlay(game()));
+letsPlay(game());

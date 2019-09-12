@@ -3,4 +3,4 @@
 import game from '../games/primeGame';
 import letsPlay from '..';
 
-console.log(letsPlay(game()));
+letsPlay(game());

@@ -1,17 +1,17 @@
-import { getRandom } from '../AllTheMath';
+import getRandom from '../randomizer';
 
-const rangeForIcrementGeneration = [2, 20];
+const rangeForIcrement = [2, 20];
 const rangeForFirstTerm = [-100, 100];
 const rangeForProgressionLength = [7, 15];
 
 export default () => ({
-  rules: 'What number is missing in the progression?',
+  description: 'What number is missing in the progression?',
   setQuestion: () => {
-    const incProgress = getRandom(...rangeForIcrementGeneration);
-    const a0 = getRandom(...rangeForFirstTerm);
+    const increment = getRandom(...rangeForIcrement);
+    const firstTerm = getRandom(...rangeForFirstTerm);
     const length = getRandom(...rangeForProgressionLength);
     const secretIndex = getRandom(0, length);
-    const progression = [...new Array(length)].map((value, i) => a0 + incProgress * i);
+    const progression = [...new Array(length)].map((value, i) => firstTerm + increment * i);
     return { progression, secretIndex };
   },
   questionToString: ({ progression, secretIndex }) => progression.reduce(

@@ -1,11 +1,12 @@
-import { getRandom } from '../AllTheMath';
+import getRandom from '../randomizer';
 
-const rangeForArgumentGeneration = [0, 100];
+const rangeForArgument = [0, 100];
+const isEven = (n) => n % 2 === 0;
 
 export default () => ({
-  rules: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
-  setQuestion: () => getRandom(...rangeForArgumentGeneration),
+  description: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
+  setQuestion: () => getRandom(...rangeForArgument),
   questionToString: (question) => String(question),
-  getRightAnswer: (num) => ((num % 2 === 0) ? 'yes' : 'no'),
+  getRightAnswer: (num) => ((isEven(num)) ? 'yes' : 'no'),
   normalizeAnswer: (answer) => ((answer === 'yes') ? 'yes' : 'no'),
 });

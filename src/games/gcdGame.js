@@ -1,16 +1,18 @@
-import { getRandom, gcd } from '../AllTheMath';
+import getRandom from '../randomizer';
 
 //  Instead of generating two random numbers, I decided to produce factors of those numbers.
 //  By that we get numbers with GCD > 1 with much higher probability.
-const rangeForFactorGeneration = [1, 11];
+const rangeForFactors = [1, 11];
+
+const gcd = (x, y) => ((x === y) ? x : gcd(Math.max(x, y) - Math.min(x, y), Math.min(x, y)));
 
 export default () => ({
-  rules: 'Find the greatest common divisor of given numbers.',
+  description: 'Find the greatest common divisor of given numbers.',
   setQuestion: () => ({
-    frstArg: getRandom(...rangeForFactorGeneration) * getRandom(...rangeForFactorGeneration),
-    scndArg: getRandom(...rangeForFactorGeneration) * getRandom(...rangeForFactorGeneration),
+    firstArgument: getRandom(...rangeForFactors) * getRandom(...rangeForFactors),
+    secondArgument: getRandom(...rangeForFactors) * getRandom(...rangeForFactors),
   }),
-  questionToString: ({ frstArg, scndArg }) => `${frstArg} ${scndArg}`,
-  getRightAnswer: ({ frstArg, scndArg }) => gcd(frstArg, scndArg),
+  questionToString: ({ firstArgument, secondArgument }) => `${firstArgument} ${secondArgument}`,
+  getRightAnswer: ({ firstArgument, secondArgument }) => gcd(firstArgument, secondArgument),
   normalizeAnswer: (answer) => Number(answer),
 });
