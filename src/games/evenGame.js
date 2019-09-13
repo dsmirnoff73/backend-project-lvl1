@@ -5,7 +5,7 @@ const isEven = (n) => n % 2 === 0;
 
 export default () => ({
   description: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
-  setQuestion: () => {
+  setRiddle: () => {
     const argument = getRandom(...rangeForArgument);
     return {
       question: argument,

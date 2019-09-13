@@ -10,7 +10,7 @@ const rangeForArgument = [0, 100];
 
 export default () => ({
   description: 'What is the result of the expression?',
-  setQuestion: () => {
+  setRiddle: () => {
     const operands = Object.keys(operations);
     const firstArgument = getRandom(...rangeForArgument);
     const secondArgument = getRandom(...rangeForArgument);

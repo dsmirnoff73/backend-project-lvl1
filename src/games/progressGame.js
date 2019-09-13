@@ -6,7 +6,7 @@ const rangeForProgressionLength = [7, 15];
 
 export default () => ({
   description: 'What number is missing in the progression?',
-  setQuestion: () => {
+  setRiddle: () => {
     const increment = getRandom(...rangeForIcrement);
     const firstTerm = getRandom(...rangeForFirstTerm);
     const length = getRandom(...rangeForProgressionLength);

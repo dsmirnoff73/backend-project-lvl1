@@ -11,7 +11,7 @@ const isPrime = (num) => {
 
 export default () => ({
   description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-  setQuestion: () => {
+  setRiddle: () => {
     const argument = getRandom(...rangeForArgument);
     return {
       question: argument,
