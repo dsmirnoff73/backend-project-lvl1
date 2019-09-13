@@ -16,7 +16,7 @@ export default () => ({
       question: progression.reduce(
         (acc, value, i) => `${acc} ${(i === secretIndex) ? '..' : value}`, '',
       ),
-      rightAnswer: progression[secretIndex]
+      rightAnswer: progression[secretIndex],
     };
   },
   normalizeAnswer: (answer) => Number(answer),

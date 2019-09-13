@@ -13,7 +13,7 @@ export default () => ({
     const secondArgument = getRandom(...rangeForFactors) * getRandom(...rangeForFactors);
     return {
       question: `${firstArgument} ${secondArgument}`,
-      rightAnswer: gcd(firstArgument, secondArgument)
+      rightAnswer: gcd(firstArgument, secondArgument),
     };
   },
   normalizeAnswer: (answer) => Number(answer),
