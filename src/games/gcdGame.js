@@ -8,11 +8,13 @@ const gcd = (x, y) => ((x === y) ? x : gcd(Math.max(x, y) - Math.min(x, y), Math
 
 export default () => ({
   description: 'Find the greatest common divisor of given numbers.',
-  setQuestion: () => ({
-    firstArgument: getRandom(...rangeForFactors) * getRandom(...rangeForFactors),
-    secondArgument: getRandom(...rangeForFactors) * getRandom(...rangeForFactors),
-  }),
-  questionToString: ({ firstArgument, secondArgument }) => `${firstArgument} ${secondArgument}`,
-  getRightAnswer: ({ firstArgument, secondArgument }) => gcd(firstArgument, secondArgument),
+  setQuestion: () => {
+    const firstArgument = getRandom(...rangeForFactors) * getRandom(...rangeForFactors);
+    const secondArgument = getRandom(...rangeForFactors) * getRandom(...rangeForFactors);
+    return {
+      question: `${firstArgument} ${secondArgument}`,
+      rightAnswer: gcd(firstArgument, secondArgument)
+    };
+  },
   normalizeAnswer: (answer) => Number(answer),
 });

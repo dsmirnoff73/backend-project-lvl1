@@ -12,12 +12,13 @@ export default () => ({
     const length = getRandom(...rangeForProgressionLength);
     const secretIndex = getRandom(0, length);
     const progression = [...new Array(length)].map((value, i) => firstTerm + increment * i);
-    return { progression, secretIndex };
+    return {
+      question: progression.reduce(
+        (acc, value, i) => `${acc} ${(i === secretIndex) ? '..' : value}`, '',
+      ),
+      rightAnswer: progression[secretIndex]
+    };
   },
-  questionToString: ({ progression, secretIndex }) => progression.reduce(
-    (acc, value, i) => `${acc} ${(i === secretIndex) ? '..' : value}`, '',
-  ),
-  getRightAnswer: ({ progression, secretIndex }) => progression[secretIndex],
   normalizeAnswer: (answer) => Number(answer),
 }
 );

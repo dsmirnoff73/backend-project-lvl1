@@ -12,16 +12,14 @@ export default () => ({
   description: 'What is the result of the expression?',
   setQuestion: () => {
     const operands = Object.keys(operations);
+    const firstArgument = getRandom(...rangeForArgument);
+    const secondArgument = getRandom(...rangeForArgument);
+    const operand = operands[getRandom(0, operands.length)];
     return {
-      firstArgument: getRandom(...rangeForArgument),
-      secondArgument: getRandom(...rangeForArgument),
-      operand: operands[getRandom(0, operands.length)],
+      question: `${firstArgument} ${operand} ${secondArgument}`,
+      rightAnswer: operations[operand](firstArgument, secondArgument),
     };
   },
-  questionToString:
-    ({ firstArgument, secondArgument, operand }) => `${firstArgument} ${operand} ${secondArgument}`,
-  getRightAnswer:
-    ({ firstArgument, secondArgument, operand }) => operations[operand](firstArgument, secondArgument),
   normalizeAnswer: (answer) => Number(answer),
 }
 );

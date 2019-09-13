@@ -4,16 +4,13 @@ import readlineSync from 'readline-sync';
 const playOneTime = (name, game, numberOfTries) => {
   if (!numberOfTries) return `\nCongratulations, ${name}!\n`;
 
-  const {
-    setQuestion, questionToString, getRightAnswer, normalizeAnswer,
-  } = game;
-  const question = setQuestion();
-  const rightAnswer = getRightAnswer(question);
+  const { setQuestion, normalizeAnswer } = game;
+  const riddle = setQuestion();
   const answer = normalizeAnswer(readlineSync
-    .question(`\nQuestion: ${questionToString(question)}\nYour answer?: `));
+    .question(`\nQuestion: ${riddle.question}\nYour answer?: `));
 
-  if (rightAnswer !== answer) {
-    return `\n'${answer}' is a wrong answer ;(. Correct answer was '${rightAnswer}'.
+  if (riddle.rightAnswer !== answer) {
+    return `\n'${answer}' is a wrong answer ;(. Correct answer was '${riddle.rightAnswer}'.
         \nLet's try again, ${name}!\n`;
   }
   console.log('Correct!');
