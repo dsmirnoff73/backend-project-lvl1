@@ -1,6 +1,6 @@
 import getRandom from '../randomizer';
 
-const rangeForArgument = [0, 100];
+const rangeForArgument = [2, 100];
 
 const isPrime = (num) => {
   for (let divider = 2, controlValue = Math.sqrt(num); divider <= controlValue; divider += 1) {
