@@ -9,5 +9,4 @@ plugins:
   - react
 rules: {
   no-console: 0,
-  max-len: [ 1, {"code": 110}]
 }

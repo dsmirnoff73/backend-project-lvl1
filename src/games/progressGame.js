@@ -1,24 +1,24 @@
 import getRandom from '../randomizer';
+import letsPlay from '..';
 
 const rangeForIcrement = [2, 20];
 const rangeForFirstTerm = [-100, 100];
 const rangeForProgressionLength = [7, 15];
 
-export default () => ({
-  description: 'What number is missing in the progression?',
-  setRiddle: () => {
+const game = (name) => {
+  const description = 'What number is missing in the progression?';
+  const setRiddle = () => {
     const increment = getRandom(...rangeForIcrement);
     const firstTerm = getRandom(...rangeForFirstTerm);
     const length = getRandom(...rangeForProgressionLength);
     const secretIndex = getRandom(0, length);
     const progression = [...new Array(length)].map((value, i) => firstTerm + increment * i);
-    return {
-      question: progression.reduce(
-        (acc, value, i) => `${acc} ${(i === secretIndex) ? '..' : value}`, '',
-      ),
-      rightAnswer: progression[secretIndex],
-    };
-  },
-  normalizeAnswer: (answer) => Number(answer),
-}
-);
+    const question = progression
+      .reduce((acc, value, i) => `${acc} ${(i === secretIndex) ? '..' : value}`, '');
+    const rightAnswer = String(progression[secretIndex]);
+    return { question, rightAnswer };
+  };
+  letsPlay(description, setRiddle, name);
+};
+
+export default game;

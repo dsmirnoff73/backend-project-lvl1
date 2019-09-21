@@ -1,4 +1,5 @@
 import getRandom from '../randomizer';
+import letsPlay from '..';
 
 const operations = {
   '+': (x, y) => x + y,
@@ -8,18 +9,18 @@ const operations = {
 
 const rangeForArgument = [0, 100];
 
-export default () => ({
-  description: 'What is the result of the expression?',
-  setRiddle: () => {
-    const operands = Object.keys(operations);
+const game = (name) => {
+  const description = 'What is the result of the expression?';
+  const operands = Object.keys(operations);
+  const setRiddle = () => {
     const firstArgument = getRandom(...rangeForArgument);
     const secondArgument = getRandom(...rangeForArgument);
-    const operand = operands[getRandom(0, operands.length)];
-    return {
-      question: `${firstArgument} ${operand} ${secondArgument}`,
-      rightAnswer: operations[operand](firstArgument, secondArgument),
-    };
-  },
-  normalizeAnswer: (answer) => Number(answer),
-}
-);
+    const operand = operands[getRandom(0, operands.length - 1)];
+    const question = `${firstArgument} ${operand} ${secondArgument}`;
+    const rightAnswer = String(operations[operand](firstArgument, secondArgument));
+    return { question, rightAnswer };
+  };
+  letsPlay(description, setRiddle, name);
+};
+
+export default game;

@@ -1,4 +1,5 @@
 import getRandom from '../randomizer';
+import letsPlay from '..';
 
 const rangeForArgument = [2, 100];
 
@@ -9,14 +10,14 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-export default () => ({
-  description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-  setRiddle: () => {
-    const argument = getRandom(...rangeForArgument);
-    return {
-      question: argument,
-      rightAnswer: isPrime(argument) ? 'yes' : 'no',
-    };
-  },
-  normalizeAnswer: (answer) => ((answer === 'yes') ? 'yes' : 'no'),
-});
+const game = (name) => {
+  const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const setRiddle = () => {
+    const question = getRandom(...rangeForArgument);
+    const rightAnswer = isPrime(question) ? 'yes' : 'no';
+    return { question, rightAnswer };
+  };
+  letsPlay(description, setRiddle, name);
+};
+
+export default game;
