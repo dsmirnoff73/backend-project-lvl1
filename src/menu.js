@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
-import evenGame from './games/evenGame';
-import calcGame from './games/calcGame';
-import gcdGame from './games/gcdGame';
-import progressGame from './games/progressGame';
-import primeGame from './games/primeGame';
+import evenGame from './games/even';
+import calcGame from './games/calculator';
+import gcdGame from './games/gcd';
+import progressGame from './games/progression';
+import primeGame from './games/prime';
 
 const games = {
   'Even/Odd?': evenGame,
@@ -12,9 +12,9 @@ const games = {
   'Fix Progression': progressGame,
   'Prime or Not?': primeGame,
 };
+const menu = Object.keys(games);
 
 const playWithStyle = (name) => {
-  const menu = Object.keys(games);
   console.log('\n\nWelcome to the Brain Games!');
   const playerName = name || readlineSync.question('\nMay I have your name? : ');
   const selector = readlineSync.keyInSelect(menu, `Which game you are playing next, ${playerName}?`);
