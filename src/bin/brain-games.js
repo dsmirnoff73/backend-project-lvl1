@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import playWithStyle from '../menu';
+import playWithMenu from '../menu';
 
-playWithStyle();
+playWithMenu();

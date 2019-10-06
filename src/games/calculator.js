@@ -1,5 +1,5 @@
 import getRandom from '../randomizer';
-import playGame from '..';
+import play from '..';
 
 const description = 'What is the result of the expression?';
 
@@ -9,18 +9,18 @@ const operations = {
   '*': (x, y) => x * y,
 };
 
-const rangeForArguments = [0, 100];
-const operationSigns = Object.keys(operations);
+const range = [0, 100];
+const signs = Object.keys(operations);
 
-const setRiddle = () => {
-  const a = getRandom(...rangeForArguments);
-  const b = getRandom(...rangeForArguments);
-  const operation = operationSigns[getRandom(0, operationSigns.length - 1)];
+const makeRiddle = () => {
+  const a = getRandom(...range);
+  const b = getRandom(...range);
+  const operation = signs[getRandom(0, signs.length - 1)];
   const question = `${a} ${operation} ${b}`;
   const rightAnswer = String(operations[operation](a, b));
   return { question, rightAnswer };
 };
 
-const game = (nameOfPlayer) => playGame(description, setRiddle, nameOfPlayer);
+export const game = { description, makeRiddle };
 
-export default game;
+export default () => play(game);

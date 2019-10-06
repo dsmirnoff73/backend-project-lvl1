@@ -6,7 +6,6 @@ extends:
 parser: babel-eslint 
 plugins:
   - babel
-  - react
 rules: {
   no-console: 0,
 }

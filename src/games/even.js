@@ -1,17 +1,17 @@
 import getRandom from '../randomizer';
-import playGame from '..';
+import play from '..';
 
 const description = 'Answer \'yes\' if the number is even, otherwise answer \'no\'.';
-const rangeForArgument = [0, 100];
+const range = [0, 100];
 
 const isEven = (n) => n % 2 === 0;
 
-const setRiddle = () => {
-  const question = getRandom(...rangeForArgument);
+const makeRiddle = () => {
+  const question = getRandom(...range);
   const rightAnswer = isEven(question) ? 'yes' : 'no';
   return { question, rightAnswer };
 };
 
-const game = (nameOfPlayer) => playGame(description, setRiddle, nameOfPlayer);
+export const game = { description, makeRiddle };
 
-export default game;
+export default () => play(game);

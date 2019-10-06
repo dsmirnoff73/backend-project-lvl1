@@ -1,9 +1,10 @@
 import readlineSync from 'readline-sync';
-import evenGame from './games/even';
-import calcGame from './games/calculator';
-import gcdGame from './games/gcd';
-import progressGame from './games/progression';
-import primeGame from './games/prime';
+import { game as evenGame } from './games/even';
+import { game as calcGame } from './games/calculator';
+import { game as gcdGame } from './games/gcd';
+import { game as progressGame } from './games/progression';
+import { game as primeGame } from './games/prime';
+import play from '.';
 
 const games = {
   'Even/Odd?': evenGame,
@@ -14,15 +15,13 @@ const games = {
 };
 const menu = Object.keys(games);
 
-const playWithStyle = (name) => {
+export default () => {
   console.log('\n\nWelcome to the Brain Games!');
-  const playerName = name || readlineSync.question('\nMay I have your name? : ');
-  const selector = readlineSync.keyInSelect(menu, `Which game you are playing next, ${playerName}?`);
-  if (selector > -1) {
-    games[menu[selector]](playerName);
-    return playWithStyle(playerName);
+  const playerName = readlineSync.question('\nMay I have your name? : ');
+  let selector = readlineSync.keyInSelect(menu, `Which game you are playing next, ${playerName}?`);
+  while (selector >= 0) {
+    play(games[menu[selector]], playerName);
+    selector = readlineSync.keyInSelect(menu, `Which game you are playing next, ${playerName}?`);
   }
-  return console.log("\nThat's all for today, folks!\n");
+  console.log("\nThat's all for today, folks!\n");
 };
-
-export default playWithStyle;

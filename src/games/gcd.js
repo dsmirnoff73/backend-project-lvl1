@@ -1,21 +1,24 @@
 import getRandom from '../randomizer';
-import playGame from '..';
+import play from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
-const rangeForFactors = [1, 11];
+const range = [1, 11];
 
-const gcd = (x, y) => ((x === y) ? x : gcd(Math.max(x, y) - Math.min(x, y), Math.min(x, y)));
+const findGCD = (x, y) => ((x === y)
+  ? x
+  : findGCD(Math.max(x, y) - Math.min(x, y), Math.min(x, y))
+);
 
-const generateNumber = () => getRandom(...rangeForFactors) * getRandom(...rangeForFactors);
+const generateNumber = () => getRandom(...range) * getRandom(...range);
 
-const setRiddle = () => {
+const makeRiddle = () => {
   const a = generateNumber();
   const b = generateNumber();
   const question = `${a} ${b}`;
-  const rightAnswer = String(gcd(a, b));
+  const rightAnswer = String(findGCD(a, b));
   return { question, rightAnswer };
 };
 
-const game = (nameOfPlayer) => playGame(description, setRiddle, nameOfPlayer);
+export const game = { description, makeRiddle };
 
-export default game;
+export default () => play(game);

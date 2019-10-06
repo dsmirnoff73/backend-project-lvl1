@@ -1,8 +1,8 @@
 import getRandom from '../randomizer';
-import playGame from '..';
+import play from '..';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const rangeForArgument = [2, 100];
+const range = [2, 100];
 
 const isPrime = (num) => {
   for (let divider = 2, controlValue = Math.sqrt(num); divider <= controlValue; divider += 1) {
@@ -11,12 +11,12 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-const setRiddle = () => {
-  const question = getRandom(...rangeForArgument);
+const makeRiddle = () => {
+  const question = getRandom(...range);
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
   return { question, rightAnswer };
 };
 
-const game = (nameOfPlayer) => playGame(description, setRiddle, nameOfPlayer);
+export const game = { description, makeRiddle };
 
-export default game;
+export default () => play(game);
