@@ -10,7 +10,7 @@ const makeRiddle = () => {
   const commonDifference = getRandom(...rangeForCommonDifference);
   const firstTerm = getRandom(...rangeForFirstTerm);
   const length = getRandom(...rangeForProgressionLength);
-  const secretElementIndex = getRandom(0, length);
+  const secretElementIndex = getRandom(0, length - 1);
   const progression = [...new Array(length)].map((value, i) => firstTerm + commonDifference * i);
   const question = progression
     .reduce((acc, value, i) => `${acc} ${(i === secretElementIndex) ? '..' : value}`, '').trim();
